@@ -83,7 +83,7 @@ export class DayService {
     let daysToGo = moment(toDay).diff(fromDay, 'days');
 
     let list = [];
-    for (let i = 0; i <= daysToGo; i++) {
+    for (let i = 0; i <= daysToGo+1; i++) {
       let key = moment(fromDay).add(i, 'days').format('YYYY-MM-DD');
       list.push(new Day(dayList[key] || {date: key, saved: !!dayList[key]}));
     }

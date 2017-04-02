@@ -1,14 +1,16 @@
-<p>
-  Every journey starts somewhere.
-</p>
+<div class="wrapper" (scroll)="onScroll($event)" #daysContainer>
+  <p>
+    Every journey starts somewhere...
+  </p>
 
-<!--<div *ngFor="let day of days$ | async">-->
-<!--<day-view [day]="day"></day-view>-->
-<!--</div>-->
-<div *ngFor="let day of list">
-  <day-view [day]="day"></day-view>
+  <!--<div *ngFor="let day of days$ | async">-->
+  <!--<day-view [day]="day"></day-view>-->
+  <!--</div>-->
+  <div *ngFor="let day of list">
+    <day-view [day]="day"></day-view>
+  </div>
+
+  <p>
+    ... see you space cowboy.
+  </p>
 </div>
-
-<p>
-  ... see you space cowboy.
-</p>

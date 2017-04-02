@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router, NavigationStart} from "@angular/router";
 import {Day} from "../shared/model/day";
 import {DayService} from "../shared/model/day.service";
 
@@ -11,7 +10,7 @@ import {DayService} from "../shared/model/day.service";
 export class EditDayComponent implements OnInit {
   day: Day;
 
-  constructor(public dayService: DayService, router: Router) {
+  constructor(public dayService: DayService) {
     this.day = dayService.dayEditing;
   }
 

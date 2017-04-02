@@ -1,18 +1,27 @@
 <div *ngIf="day">
-  <p>
-    * <span>{{day.$key}}</span> <span>{{day.title}}</span>
-  </p>
-  <p>
-    <span>{{day.description}}</span>
-  </p>
+  <!--<p>-->
+    <!--* <span>{{day.$key}}</span> <span>{{day.title}}</span>-->
+  <!--</p>-->
+  <!--<p>-->
+    <!--<span>{{day.description}}</span>-->
+  <!--</p>-->
   <div>
     <div>
-      <input [(ngModel)]="day.title" [blurChange]="saveTheDay.bind(this)">
+      <span>{{day.date}}</span>
+      <input [(ngModel)]="day.title" [blurChange]="saveTheDay.bind(this)"
+        placeholder="Name your day">
     </div>
     <div>
-      <textarea [(ngModel)]="day.description" [blurChange]="saveTheDay.bind(this)"></textarea>
+      <textarea [(ngModel)]="day.description" [blurChange]="saveTheDay.bind(this)"
+          placeholder="This is what I was doing..."
+      ></textarea>
+    </div>
+    <div>
+      Tags:
+      <em>This does not work, see app.module.ts</em>
+      <!--<tag-input [(day.tags)]></tag-input>-->
     </div>
   </div>
 
-  <pre>{{day | json}}</pre>
+  <!--<pre>{{day | json}}</pre>-->
 </div>
