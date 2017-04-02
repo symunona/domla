@@ -1,0 +1,10 @@
+<div >
+  <a (click)="editDay(day)">
+    <p>
+      {{day.saved==false?'*':''}} <span>{{day.date}}</span> <span>{{day.title}}</span>
+    </p>
+    <p>
+      <span>{{day.description}}</span>
+    </p>
+  </a>
+</div>

@@ -1,0 +1,18 @@
+<div *ngIf="day">
+  <p>
+    * <span>{{day.$key}}</span> <span>{{day.title}}</span>
+  </p>
+  <p>
+    <span>{{day.description}}</span>
+  </p>
+  <div>
+    <div>
+      <input [(ngModel)]="day.title" [blurChange]="saveTheDay.bind(this)">
+    </div>
+    <div>
+      <textarea [(ngModel)]="day.description" [blurChange]="saveTheDay.bind(this)"></textarea>
+    </div>
+  </div>
+
+  <pre>{{day | json}}</pre>
+</div>
