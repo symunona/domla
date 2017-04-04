@@ -1,4 +1,8 @@
-# DomlaCli
+# Days Of My Life
+
+This little project will be a simple journal which lets you write about each day through your life. 
+
+Hopefully the project will be available featuring full offline syncing once it's ready, enabling it to be packed with Cordova natively and with Polimer I am hoping I can create a hybrid too. 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.2.
 
