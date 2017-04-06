@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { routerConfig} from "./router.config";
 import { DayListComponent } from './day-list/day-list.component';
 import { EditDayComponent } from './edit-day/edit-day.component';
-import {AngularFireModule, AngularFire} from "angularfire2";
+import {AngularFireModule} from "angularfire2";
 import {RouterModule} from "@angular/router";
 import {AuthService} from "./shared/security/auth.service";
 import {LoginComponent} from "./login/login.component";

@@ -12,12 +12,12 @@ export class DayResolver implements Resolve<Day> {
   constructor(private dayService: DayService) {
 }
 
-resolve(route: ActivatedRouteSnapshot,
-  state: RouterStateSnapshot): Observable<Day> {
+  resolve(route: ActivatedRouteSnapshot,
+          state: RouterStateSnapshot): Observable<Day> {
 
-  return this.dayService
-    .findDayByDate(route.params['date'])
-    .first()
-}
+    return this.dayService
+      .findDayByDate(route.params['date'])
+      .first();
+  }
 
 }
