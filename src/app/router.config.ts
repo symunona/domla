@@ -12,9 +12,13 @@ export const routerConfig: Route[] = [
     path: 'home',
     component: DayListComponent,
 
-    // LEARN NOTE: Is there a good way to figure out what kind
+    // Is there a good way to figure out what kind
     // of functionality lies beneath this? Like looking into
     // router did not really help.
+    // LEARN ANSWER: https://leanpub.com/router
+    // https://github.com/angular/angular/tree/master/packages/router
+    // overview: https://vsavkin.com/angular-2-router-d9e30599f9ea
+    // dev doc: https://angular.io/docs/ts/latest/guide/router.html
     canActivate: [AuthGuard]
   },
   {
