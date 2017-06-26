@@ -5,12 +5,12 @@
  * a range of days open to selection.
  */
 
-import {Injectable, Inject} from '@angular/core';
-import {AngularFireDatabase, FirebaseRef} from "angularfire2";
-import {Observable, Subject} from "rxjs/Rx";
-import {Day} from "./day";
+import { Injectable, Inject } from '@angular/core';
+import { AngularFireDatabase, FirebaseRef } from "angularfire2";
+import { Observable, Subject } from "rxjs/Rx";
+import { Day } from "./day";
 import * as moment from "moment";
-import {AuthService} from "../security/auth.service";
+import { AuthService } from "../security/auth.service";
 
 @Injectable()
 export class DayService {
@@ -20,8 +20,8 @@ export class DayService {
   userRoot: string;
 
   constructor(private db: AngularFireDatabase,
-              @Inject(FirebaseRef) fb,
-              private authService: AuthService) {
+    @Inject(FirebaseRef) fb,
+    private authService: AuthService) {
 
     // Initialize the user's db. Once we get a user,
     // set the root to
@@ -83,9 +83,9 @@ export class DayService {
     let daysToGo = moment(toDay).diff(fromDay, 'days');
 
     let list = [];
-    for (let i = 0; i <= daysToGo+1; i++) {
+    for (let i = 0; i <= daysToGo + 1; i++) {
       let key = moment(fromDay).add(i, 'days').format('YYYY-MM-DD');
-      list.push(new Day(dayList[key] || {date: key, saved: !!dayList[key]}));
+      list.push(new Day(dayList[key] || { date: key, saved: !!dayList[key] }));
     }
     return list;
   }
@@ -104,7 +104,7 @@ export class DayService {
   saveNewDay(day: Day) {
     const dayToSave = Object.assign({}, day);
     // LEARN NOTE: Is there a better & nicer way to do this?
-    delete(dayToSave.$key);
+    delete (dayToSave.$key);
 
     let dataToSave = {};
     dataToSave[`days/${day.date}`] = dayToSave;
@@ -132,8 +132,17 @@ export class DayService {
         equalTo: day
       }
     })
-      .do(console.log)
-      .map(days => days[0]);
+      .map(days => {
+        if (!days.length) {
+          return new Day({
+            date: day,
+            title: 'A new day'
+          })
+        } else {
+          return days[0];
+        }
+      });
+
   }
 
   /**
@@ -188,15 +197,15 @@ export class DayService {
 
     this.userDb.update(dataToSave)
       .then(
-        val => {
-          subject.next(val);
-          subject.complete();
+      val => {
+        subject.next(val);
+        subject.complete();
 
-        },
-        err => {
-          subject.error(err);
-          subject.complete();
-        }
+      },
+      err => {
+        subject.error(err);
+        subject.complete();
+      }
       );
 
     return subject.asObservable();
