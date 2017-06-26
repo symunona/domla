@@ -1,8 +1,9 @@
-<div >
+<div [class.weekend]="day.isWeekend()" [class.today]="day.isToday()">
   <a (click)="editDay(day)">
     <p>
       {{day.saved==false?'*':''}} <span>{{day.date}}</span> <span>{{day.title}}</span>
-    </p>
+      <span>{{day.weekDay()}}</span>
+    </p>    
     <p>
       <span>{{day.description}}</span>
     </p>
