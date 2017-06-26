@@ -1,7 +1,10 @@
 // import {Observable} from "rxjs/Rx";
 
+declare var moment: any;
+
 
 import {CounterTag} from "./counter-tag";
+import {Moment} from 'moment'
 export class Day {
 
   public $key:string;
@@ -11,11 +14,27 @@ export class Day {
 
   // LEARN NOTE: I am sure this can be done nicer.
   public saved: boolean;
-  public tags: string[];
+  public tags: string[] = [];
   public counterTags: CounterTag[];
 
   constructor(extend: any){
     Object.assign(this, extend);
+  }
+
+  weekDay():string{
+    // console.log(moment, moment(this.date, 'YYYY-MM-DD').format('D'))
+    return moment(this.date, 'YYYY-MM-DD').format('dddd');
+  }
+
+  isWeekend(){
+    let today = moment(this.date, 'YYYY-MM-DD').day()
+    // LEARN NOTE:
+    // Ez miért fut le folyamatosan, amikor scrollozom?
+    // console.log(today, 'is weekend', (today == 0) || (today == 6))
+    return (today === 0) || (today === 6);
+  }
+  isToday(){
+    return moment().format('YYYY-MM-DD') === this.date;
   }
 
   /**
