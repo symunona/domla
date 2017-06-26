@@ -19,7 +19,9 @@
     <div>
       Tags:
       <em>This does not work, see app.module.ts</em>
-      <tag-input [(ngModel)]="day.tags"></tag-input>
+      <tag-input [(ngModel)]="day.tags" 
+          (onAdd)="saveTheDay(this)"
+          (onRemove)="saveTheDay(this)"></tag-input>
     </div>
   </div>
 
